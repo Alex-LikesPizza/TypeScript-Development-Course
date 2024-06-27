@@ -1,0 +1,1 @@
+console.log("This wont compile. (tsconfig.json->exclude)");

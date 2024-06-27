@@ -8,10 +8,12 @@ const personAlt: {
   name: string,
   age: number,
   role: [number, string], // tuple
+  luckyNumbers: (string | number)[],
 } = {
   name: "Alexandru",
   age: 17,
   role: [2, "author"], 
+  luckyNumbers: ["2", "3", 2]
 };
 
 const person = {
