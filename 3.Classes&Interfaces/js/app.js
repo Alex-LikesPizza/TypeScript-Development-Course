@@ -19,3 +19,17 @@ const product = new Product("any product");
 // productCopy.describe();
 // console.log(product.id); // id is not accessible
 console.log(product.name, "id: ", product.getId());
+class Food extends Product {
+    constructor(type) {
+        super("Food");
+        this.type = type;
+    }
+    get getFoodType() {
+        return this.type;
+    }
+    set setFoodType(type) {
+        this.type = type;
+    }
+}
+let banana = new Food("fruit");
+console.log(banana.getFoodType);
