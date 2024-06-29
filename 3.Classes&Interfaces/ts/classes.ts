@@ -19,7 +19,6 @@ const product = new Product("any product")
 
 // const productCopy = { describe: product.describe} // Error: no name, log property in "this" context, aka not of type Product
 // productCopy.describe();
-
 // console.log(product.id); // id is not accessible
 console.log(product.name, "id: ", product.getId());
 
@@ -27,13 +26,31 @@ class Food extends Product {
   constructor(private type: string){
     super("Food"); 
   }
-  get getFoodType(){
+  get foodType(){
     return this.type;
   }
-  set setFoodType(type: string){
+  set foodType(type: string){
     this.type = type;
   }
 }
 
 let banana = new Food("fruit");
-console.log(banana.getFoodType);
+console.log(banana.foodType);
+banana.foodType = "berry";
+console.log(banana.foodType);
+
+abstract class Shape {
+  constructor(public lined: boolean){}
+  abstract print(): void;
+}
+
+class Square extends Shape{
+  constructor(public name: string){
+    super(true);
+  }
+  print(){ // must be implemented
+    console.log(this.name, "is", this.lined? "a lined" : "not a lined", "square")
+  }
+}
+let sqr = new Square("contour");
+sqr.print();

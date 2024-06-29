@@ -24,12 +24,30 @@ class Food extends Product {
         super("Food");
         this.type = type;
     }
-    get getFoodType() {
+    get foodType() {
         return this.type;
     }
-    set setFoodType(type) {
+    set foodType(type) {
         this.type = type;
     }
 }
 let banana = new Food("fruit");
-console.log(banana.getFoodType);
+console.log(banana.foodType);
+banana.foodType = "berry";
+console.log(banana.foodType);
+class Shape {
+    constructor(lined) {
+        this.lined = lined;
+    }
+}
+class Square extends Shape {
+    constructor(name) {
+        super(true);
+        this.name = name;
+    }
+    print() {
+        console.log(this.name, "is", this.lined ? "a lined" : "not a lined", "square");
+    }
+}
+let sqr = new Square("contour");
+sqr.print();
