@@ -31,3 +31,4 @@ let userInput = '';
 
 const userDataA = userInput || "Not found"; // "Not found" for any falsy value, including: 0 and ''
 const userDataB = userInput ?? "Not found"; // "Not found" only for: "null" and "undefined"
+//#endregion

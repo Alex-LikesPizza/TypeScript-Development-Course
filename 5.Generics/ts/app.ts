@@ -84,3 +84,4 @@ student.age = 19;
 
 const names: Readonly<Array<string>> = ["Max", "Allan"];
 // names.push("Alex"); // Error: Property 'push' does not exist on type 'readonly string[]'
+//#endregion
