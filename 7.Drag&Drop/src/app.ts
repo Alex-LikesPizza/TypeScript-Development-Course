@@ -92,14 +92,24 @@ class ProjectList{
     this.element.id = `${this.type}-projects`;
     projectState.addListener((projects: any[]) => {
       this.assignedProjects = projects;
+      this.renderProjects();
     })
     this.attach();
     this.renderContent();
   }
+  private renderProjects(){
+    const listEl = document.getElementById(`${this.type}-projects-list`) as HTMLUListElement;
+    for(const item of this.assignedProjects){
+      const listItem = document.createElement("li");
+      listItem.textContent = item.title;
+      console.log("appending")
+      listEl.appendChild(listItem);
+    }
+  }
   private renderContent(){
-    const listId = `${this.type}-projects`;
+    const listId = `${this.type}-projects-list`;
     this.element.querySelector('ul')!.id = listId;
-    this.element.querySelector('h2')!.textContent = this.type.toUpperCase() + "PROJECTS";
+    this.element.querySelector('h2')!.textContent = this.type.toUpperCase() + " PROJECTS";
   }
   private attach() {
     this.hostElement.insertAdjacentElement('beforeend', this.element);
@@ -152,7 +162,6 @@ class ProjectInput {
       min: 1,
       max: 20,
     }
-
     if(!validate(titleValidatable) ||
        !validate(descriptionValidatable) ||
        !validate(peopleValidatable)){
